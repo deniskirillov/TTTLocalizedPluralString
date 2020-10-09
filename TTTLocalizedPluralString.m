@@ -488,6 +488,16 @@ static NSString * TTTHindiPluralRuleForCount(NSUInteger count) {
     }
 }
 
+static NSString * TTTPersianPluralRuleForCount(NSUInteger count) {
+    switch (count) {
+        case 0:
+        case 1:
+            return kTTTOnePluralRule;
+        default:
+            return kTTTOtherPluralRule;
+    }
+}
+
 NSString * TTTLocalizedPluralStringKeyForCountAndSingularNoun(NSUInteger count, NSString *singular) {
     NSString *languageCode = [[[NSBundle mainBundle] preferredLocalizations] objectAtIndex:0];
     return TTTLocalizedPluralStringKeyForCountAndSingularNounForLanguage(count, singular, languageCode);
@@ -573,6 +583,8 @@ NSString * TTTLocalizedPluralStringKeyForCountAndSingularNounForLanguage(NSUInte
         pluralRule = TTTVietnamesePluralRuleForCount(count);
     } else if ([languageCode hasPrefix:@"hi"]) {
         pluralRule = TTTHindiPluralRuleForCount(count);
+    } else if ([languageCode hasPrefix:@"fa"]) {
+        pluralRule = TTTPersianPluralRuleForCount(count);
     } else {
         NSLog(@"Unsupported language: %@", languageCode);
         return nil;
