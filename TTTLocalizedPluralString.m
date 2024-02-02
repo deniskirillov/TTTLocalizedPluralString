@@ -23,7 +23,7 @@
 #import "TTTLocalizedPluralString.h"
 
 // Source: Unicode Common Locale Data Repository Plural Rules
-// http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html
+// https://www.unicode.org/cldr/charts/44/supplemental/language_plural_rules.html
 
 static NSString * const kTTTZeroPluralRule = @"zero";
 static NSString * const kTTTOnePluralRule = @"one";
